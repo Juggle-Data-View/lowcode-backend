@@ -8,10 +8,14 @@ export default class Test {
     req: Request<{ proxyUrl: string; method?: HTTPMethod }>,
     res: Response
   ) {
-    const { proxyUrl } = req.body;
-    const response = request.get(proxyUrl);
+    try {
+      const { proxyUrl } = req.body;
 
-    req.pipe(response);
-    response.pipe(res);
+      const response = request.get(proxyUrl);
+      req.pipe(response);
+      response.pipe(res);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
