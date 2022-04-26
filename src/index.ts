@@ -33,7 +33,7 @@ const cros = (req: Request, res: Response, next: NextFunction) => {
     "POST, GET, OPTIONS, PUT, DELETE"
   );
   res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, X-Auth-Token");
   next();
 };
 
